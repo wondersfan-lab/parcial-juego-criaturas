@@ -36,3 +36,23 @@ En defender le puse logica para que sus escamas le bajen 5 puntos al daño que r
 - Actualicé Dragon.java para que su método atacar() sume el daño de las armas que tenga equipadas antes de aplicar el daño crítico.
 
 ----------------------------------------------------------------------------
+
+Qué hice yo (Germán Bolaños):
+
+1- Implementé la clase Mago.java, que hereda de Criatura con extends y llama a su constructor con super. Le agregué el atributo privado hechizos.
+
+Apliqué polimorfismo con @Override en Mago.java:
+- En atacar lanza un hechizo y usa su fuerza (más el daño de las armas equipadas) para hacer daño al objetivo.
+- En defender su escudo de maná le baja 2 puntos al daño antes de quitarle vida.
+
+2- Implementé la clase Guerrero.java, que también hereda de Criatura con extends y super. Le puse el atributo privado arma.
+
+Apliqué polimorfismo con @Override en Guerrero.java:
+- En atacar pelea cuerpo a cuerpo con su arma usando su fuerza (más las armas equipadas).
+- En defender su armadura le baja 3 puntos al daño recibido.
+
+3- Agregué el sistema de armas a mis criaturas: aproveché la lista de armas y el método calcularDañoExtraArmas() de Criatura para que el Mago (por ejemplo con una varita mágica) y el Guerrero sumen daño extra cuando tienen un arma equipada. Esto es composición, porque la criatura "tiene" armas.
+
+4- Hice las pruebas unitarias del proyecto con JUnit 5, en la carpeta src/test. Creé MagoTest, GuerreroTest, DragonTest y ArmaTest, probando la creación de los objetos, el cálculo de daño al defender, que la salud no baje de cero, el método estaViva() y que las armas aumenten el daño. Corrí mvn test y pasaron las 18 pruebas sin fallos.
+
+----------------------------------------------------------------------------
