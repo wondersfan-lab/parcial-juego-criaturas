@@ -38,9 +38,9 @@ public class Main {
 
     public static void main(String[] args) {
         // 1. Instanciación polimórfica (tipo base = subtipo concreto)
-        Criatura dragon = new Dragon("Smaug", 130, 18, "Escamas de Obsidiana");
-        Criatura guerrero = new Guerrero("Aragorn", 110, 16, "Espada Andúril");
-        Criatura mago = new Mago("Gandalf", 90, 22, "Rayo Arcano");
+        Criatura dragon = new Dragon("Dragon", 130, 18, "Escamas de Obsidiana");
+        Criatura guerrero = new Guerrero("Guerrero", 110, 16, "Espada Andúril");
+        Criatura mago = new Mago("Mago", 90, 22, "Rayo Arcano");
 
         // 2. Creación de armas (Composición)
         Arma garraTitan = new Arma("Garras de Fuego", 6);
