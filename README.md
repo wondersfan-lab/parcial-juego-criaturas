@@ -35,6 +35,11 @@ En defender le puse logica para que sus escamas le bajen 5 puntos al daño que r
 - Modifiqué la clase base Criatura.java agregándole una lista de armas (List<Arma> armas) y los métodos equiparArma() y calcularDañoExtraArmas(). De esta forma cualquier criatura tiene la capacidad de usar cero, una o múltiples armas sin modificar su jerarquía de herencia.
 - Actualicé Dragon.java para que su método atacar() sume el daño de las armas que tenga equipadas antes de aplicar el daño crítico.
 
+4. Integración final y simulación completa del sistema en Main.java:
+- Diseñé el flujo final del método main() integrando el sistema de composición de armas con las tres subclases (Dragon, Guerrero y Mago).
+- Demostré en la simulación los distintos casos de uso: criaturas con cero, una y múltiples armas equipadas sumando su daño adicional.
+- Verifiqué la compatibilidad de toda la arquitectura junto con la ejecución exitosa de la suite completa de pruebas unitarias (mvn clean test).
+
 ----------------------------------------------------------------------------
 
 Qué hice yo (Germán Bolaños):
