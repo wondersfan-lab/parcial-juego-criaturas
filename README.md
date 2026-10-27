@@ -30,4 +30,9 @@ En defender le puse logica para que sus escamas le bajen 5 puntos al daño que r
 - Creé la lógica del combate por turnos con un ciclo while que revisa estaViva() hasta que una criatura cae derrotada y anuncia al ganador.
 - Instancié las criaturas usando polimorfismo (Criatura c = new Dragon(...)) y ejecuté los combates de prueba en la consola.
 
+3. Implementación del sistema de armas (Composición en POO):
+- Creé la clase Arma.java con atributos encapsulados para el nombre y el daño adicional.
+- Modifiqué la clase base Criatura.java agregándole una lista de armas (List<Arma> armas) y los métodos equiparArma() y calcularDañoExtraArmas(). De esta forma cualquier criatura tiene la capacidad de usar cero, una o múltiples armas sin modificar su jerarquía de herencia.
+- Actualicé Dragon.java para que su método atacar() sume el daño de las armas que tenga equipadas antes de aplicar el daño crítico.
+
 ----------------------------------------------------------------------------
