@@ -1,6 +1,7 @@
 package com.uniajc;
 
-// Mago: subclase concreta de Criatura. Ataca a distancia con hechizos.
+// Mago: subclase concreta de Criatura. Ataca a distancia con hechizos
+// y puede potenciar su ataque con las armas que tenga equipadas (ej: una varita).
 public class Mago extends Criatura {
 
     private String hechizos; // atributo propio del Mago
@@ -11,25 +12,25 @@ public class Mago extends Criatura {
         this.hechizos = hechizos;
     }
 
-    // Ataque propio del Mago: lanza un hechizo y aplica su fuerza como daño
+    // Ataque propio del Mago: fuerza base + daño de las armas equipadas (composición)
     @Override
     public void atacar(Criatura objetivo) {
+        int dañoGenerado = this.fuerza + calcularDañoExtraArmas();
         System.out.println(this.nombre + " lanza el hechizo '" + this.hechizos
-                + "' sobre " + objetivo.getNombre() + ".");
-        objetivo.defender(this.fuerza);
+                + "' sobre " + objetivo.getNombre() + " causando " + dañoGenerado + " de daño potencial.");
+        objetivo.defender(dañoGenerado);
     }
 
     // Defensa propia: el escudo de maná reduce el daño recibido en 2 puntos
     @Override
     public void defender(int daño) {
-        int dañoReal = Math.max(0, daño - 2);
-        this.salud -= dañoReal;
-        System.out.println(this.nombre + " recibe " + dañoReal
-                + " de daño. Vida restante: " + this.salud);
+        int dañoMitigado = Math.max(0, daño - 2);
+        this.salud = Math.max(0, this.salud - dañoMitigado);
+        System.out.println(this.nombre + " se protege con su escudo de maná. Recibe " + dañoMitigado
+                + " de daño. Salud restante: " + this.salud);
     }
 
-    // Getter de los hechizos
-    public String getHechizos() {
-        return this.hechizos;
-    }
+    // Getter del atributo propio
+    public String getHechizos() { return hechizos; }
+    public void setHechizos(String hechizos) { this.hechizos = hechizos; }
 }
